@@ -17,15 +17,22 @@ public class Boss {
 		this.hp -= damage;
 	}
 	//mpを消費して魔法攻撃をするMagic関数
+//	public void Magic (){
+//		this.mp -=5;
+//		if (this.mp >= 0) {
+//			Debug.Log ("魔法攻撃をした。残りMPは" + this.mp + "。");
+//		} else {
+//			Debug.Log("MPが足りないため魔法が使えない。");
+//		}
+	//以下訂正↓　『残りMPが足りているか判定』してから『MPを減らす』処理にする。足りない場合でも残りMP表示に変更した。
+
 	public void Magic (){
-		this.mp -=5;
-		if (this.mp >= 0) {
+		if (this.mp >= 5) {
+			this.mp -= 5;
 			Debug.Log ("魔法攻撃をした。残りMPは" + this.mp + "。");
 		} else {
-			Debug.Log("MPが足りないため魔法が使えない。");
-		}
-
-
+			Debug.Log("MPが足りないため魔法が使えない。残りMPは" + this.mp + "。");
+		} 
 
 	}
 		
@@ -40,17 +47,24 @@ public class Test : MonoBehaviour {
 		lastboss.Attack();
 		lastboss.Defence(3);
 		//Magic関数を呼び出して魔法を使う
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
-		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+//		lastboss.Magic();
+	//以下訂正↓　ループを使う様に訂正
+
+
+		for (int i = 0; i < 15; i++) 
+		{
+			lastboss.Magic ();
+		}
 
 
 		Boss midboss = new Boss ();
